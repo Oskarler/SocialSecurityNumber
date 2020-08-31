@@ -10,7 +10,19 @@ namespace SocialSecurityNumber
         {
             Write("Social Security Number (YYMMDD-XXXX): ");
 
-            string socialSecurityNumber = ReadLine();
+            string socialSecurityNumber;
+
+            if(args.Length > 0)
+            {
+                Console.WriteLine($"You provided: {args[0]}");
+                socialSecurityNumber = args[0];
+            }
+            else
+            {
+                Write("Social Security Number (YYMMDD-XXXX): ");
+                socialSecurityNumber = Console.ReadLine();
+            }
+
             string gender;
 
             int genderNumber = int.Parse(socialSecurityNumber.Substring(socialSecurityNumber.Length - 2, 1));
